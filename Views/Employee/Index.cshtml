@@ -1,0 +1,36 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Thanks";
+
+}
+<a asp-action="Create">Add More Employees</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+        <tr>
+            <td>@employee.Id</td>
+            <td>@employee.Name</td>
+            <td>@employee.Drpartment</td>
+            <td>@employee.salary</td>
+            <td>@employee.phone</td>
+            <td>@employee.Email</td>
+            <td><a asp-action="Update" asp-route-empid="@employee.Id">Update</a></td>
+            <td><a asp-action="Delete" asp-route-empid="@employee.Id">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
